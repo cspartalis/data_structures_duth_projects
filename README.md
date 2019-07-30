@@ -1,5 +1,7 @@
 # My class projects on "Data Structures" in Democritus University of Thrace
 
+keywords: java, facility game, dijkstra, mst
+
 * Project 1
   * factorial
   * prime
@@ -12,5 +14,3 @@
 * Project 3
    * Dijkstra
    * Graph MST
-   
-keywords: java, facility game, dijkstra, mst
