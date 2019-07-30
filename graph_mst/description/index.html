@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>mst</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<style type="text/css">
+			.bordered-table td {border:1px solid black;
+			padding:0.5em;}
+			.bordered-table th {border:1px solid black;
+			padding:0.5em;}
+			.bordered-table { border-collapse:collapse;}
+		</style>
+	    <script type="text/javascript">
+	    	function imgAltClean(image) {
+    			image.onerror = "";
+    			image.src = "https://software.ee.duth.gr/moodle/pluginfile.php/1770/mod_folder/content/0/mst/graph.png";
+    			return true;
+    		}
+	    	function imgAltDijkstra(image) {
+    			image.onerror = "";
+    			image.src = "https://software.ee.duth.gr/moodle/pluginfile.php/1770/mod_folder/content/0/mst/mst.png";
+    			return true;
+    		}
+	    </script>
+	</head>
+	<body>
+
+		<h2>
+			Υλοποίηση Minimum Spanning Tree (MST).
+		</h2>
+
+		<h2>Σύνοψη</h2>
+		<p>
+			Σε αυτή την άσκηση πρέπει να γράψετε κώδικα που θα υπολογίζει το MST ενός γραφήματος.
+		</p>
+		<h2>Περιγραφή</h2>
+		<p>
+			Στο πρόγραμμα θα συμπληρώσετε την μέθοδο
+			<code>mst</code>
+			στην κλάση
+			<code>Mst</code>
+			στο πακέτο
+			<code>gr.duth.ee.euclid.datastructures.graphmst</code>
+			.
+		</p>
+		<p>Το μέγεθος του γραφήματος σε κόμβους ανήκει στο κλειστό διάστημα
+			[5,
+			100] και δεν χρειάζονται έλεγχοι για να διαπιστωθεί αν είναι όντως
+			σε
+			αυτό το διάστημα.
+		</p>
+		<p>
+			Για την αναπαράσταση του γραφήματος χρησιμοποιείτε υποχρεωτικά την
+			έτοιμη υλοποιημένη κλάση
+			<code>WeightedGraph</code>
+			στο πακέτο
+			<code>gr.duth.ee.euclid.datastructures.graphmst</code>
+			.
+		</p>
+		<p>
+			Για την αναπαράσταση του αποτελέσματος της εκτέλεσης του αλγορίθμου MST χρησιμοποιείτε υποχρεωτικά την ίδια κλάση
+			<code>WeightedGraph</code>
+			στο πακέτο
+			<code>gr.duth.ee.euclid.datastructures.graphmst</code>
+			.
+		</p>
+		<p>
+			<em>Δεν επιτρέπεται οποιαδήποτε τροποποίησή του <code>WeightedGraph</code>, παρά μόνο κατά την
+				φάση της ανάπτυξης, αν είναι απαραίτητο για λόγους αποσφαλμάτωσης.
+				Κατά την υποβολή αξιολόγησης, πρέπει να χρησιμοποιηθεί η αρχική του
+				μορφή.</em>
+		</p>
+		<p>
+			Η μέθοδος που πρέπει να υλοποιηθεί βρίσκεται μέσα στην κλάση <code>Mst</code> στο πακέτο
+			<code>gr.duth.ee.euclid.datastructures.graphmst</code> και είναι η:
+		</p>
+		<p>
+			<strong>public static WeightedGraph mst(WeightedGraph g)</strong>
+		</p>
+		<p>
+			Η μέθοδος αυτή πρέπει να υλοποιεί κάποιον αλγόριθμο εύρεσης MST και να επιστρέφει ένα κατάλληλα συμπληρωμένο αντικείμενο τύπου <code>WeightedGraph</code>. 
+		</p>
+		<p>
+			Το γράφημα πάνω στο οποίο θα εκτελεστεί ο αλγόριθμος βρίσκεται αποθηκευμένος στην παράμετρο <code>g</code>.
+			Η μεταβλητή <code>g</code> ποτέ δεν θα είναι null και δεν χρειάζονται έλεγχοι για να διαπιστωθεί αν είναι όντως όχι null.
+		</p>
+
+		<h2>Παράδειγμα</h2>
+		<p>
+			Έστω το γράφημα:
+		</p>
+		<p><img src="graph.png" onerror="imgAltClean(this)" alt="Γράφημα" /></p>
+
+		<p>Εκτελώντας MST πάνω του λαμβάνουμε:</p>
+		<p><img src="mst.png" onerror="imgAltDijkstra(this)" alt="Γράφημα" /></p>
+
+		<p>Το αποτέλεσμα της ετέλεσης του αλγορίθμου αναπαρίσταται με ένα αντικείμενο τύπου <code>WeightedGraph</code>
+		που περιέχει όλους τους κόμβους του αρχικού γραφήματος και μόνο τις κατάλληλες (μπλε) ακμές.</p>
+
+
+		<h3>WeightedGraph</h3>
+		<p>Αντιπροσωπεύει έναν μη-κατευθυνόμενο γράφο με αποστάσεις/βάρη.</p>
+
+
+		<p>
+			Καλή επιτυχία!
+		</p>
+
+	</body>
+</html>

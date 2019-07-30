@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>simple_graph_traversals</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<style type="text/css">
+			.bordered-table td {border:1px solid black;
+			padding:0.5em;}
+			.bordered-table th {border:1px solid black;
+			padding:0.5em;}
+			.bordered-table { border-collapse:collapse;}
+		</style>
+	    <script type="text/javascript">
+	    	function imgAltClean(image) {
+    			image.onerror = "";
+    			image.src = "https://software.ee.duth.gr/moodle/pluginfile.php/565/mod_folder/content/0/dijkstra/example_graph_clean.png";
+    			return true;
+    		}
+	    	function imgAltDijkstra(image) {
+    			image.onerror = "";
+    			image.src = "https://software.ee.duth.gr/moodle/pluginfile.php/565/mod_folder/content/0/dijkstra/example_graph_dijkstra.png";
+    			return true;
+    		}
+	    </script>
+
+		<!-- Copyright (c) 2014 Remous-Aris Koutsiamanis. This file is part of 
+			DataStructuresAndAlgorithmsAssignments. DataStructuresAndAlgorithmsAssignments 
+			is free software: you can redistribute it and/or modify it under the terms 
+			of the GNU Affero Public License as published by the Free Software Foundation, 
+			either version 3 of the License, or (at your option) any later version. DataStructuresAndAlgorithmsAssignments 
+			is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+			without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR 
+			PURPOSE. See the GNU Affero Public License for more details. You should have 
+			received a copy of the GNU Affero Public License along with testing-framework. 
+			If not, see <http://www.gnu.org/licenses/>. Contributors: Remous-Aris Koutsiamanis 
+			- initial implementation -->
+	</head>
+	<body>
+
+		<h2>
+			Αλγόριθμος Dijkstra.
+		</h2>
+
+		<h2>Σύνοψη</h2>
+		<p>
+			Σε αυτή την άσκηση πρέπει να γράψετε κώδικα που θα υλοποιεί τον αλγόριθμο Dijkstra.
+		</p>
+		<h2>Περιγραφή</h2>
+		<p>
+			Στο πρόγραμμα θα συμπληρώσετε την μέθοδο
+			<code>shortestPaths</code>
+			στην κλάση
+			<code>Dijkstra</code>
+			στο πακέτο
+			<code>gr.duth.ee.euclid.datastructures.dijkstra</code>
+			.
+		</p>
+		<p>Το μέγεθος του γραφήματος σε κόμβους ανήκει στο κλειστό διάστημα
+			[5,
+			100] και δεν χρειάζονται έλεγχοι για να διαπιστωθεί αν είναι όντως
+			σε
+			αυτό το διάστημα.
+		</p>
+		<p>
+			Για την αναπαράσταση του γραφήματος χρησιμοποιείτε υποχρεωτικά την
+			έτοιμη υλοποιημένη κλάση
+			<code>DirectedDistanceGraph</code>
+			στο πακέτο
+			<code>gr.duth.ee.euclid.datastructures.dijkstra</code>
+			.
+		</p>
+		<p>
+			Για την αναπαράσταση του αποτελέσματος της εκτέλεσης του αλγορίθμου Dijkstra χρησιμοποιείτε υποχρεωτικά την
+			έτοιμη υλοποιημένη κλάση
+			<code>DijkstraResult</code>
+			στο πακέτο
+			<code>gr.duth.ee.euclid.datastructures.dijkstra</code>
+			.
+		</p>
+		<p>
+			<em>Δεν επιτρέπεται οποιαδήποτε τροποποίησή των <code>DirectedDistanceGraph</code> και <code>DijkstraResult</code>, παρά μόνο κατά την
+				φάση της ανάπτυξης, αν είναι απαραίτητο για λόγους αποσφαλμάτωσης.
+				Κατά την υποβολή αξιολόγησης, πρέπει να χρησιμοποιηθεί η αρχική της
+				μορφή.</em>
+		</p>
+		<p>
+			Η μέθοδος που πρέπει να υλοποιηθεί βρίσκεται μέσα στην κλάση <code>Dijkstra</code> στο πακέτο
+			<code>gr.duth.ee.euclid.datastructures.dijkstra</code> και είναι η:
+		</p>
+		<p>
+			<strong>public DijkstraResult shortestPaths()</strong>
+		</p>
+		<p>
+			Η μέθοδος αυτή πρέπει να υλοποιεί τον αλγόριθμο Dijkstra και να επιστρέφει ένα κατάλληλα συμπληρωμένο αντικείμενο τύπου <code>DijkstraResult</code>. 
+		</p>
+		<p>
+			Το γράφημα πάνω στο οποίο θα εκτελεστεί ο αλγόριθμος Dijkstra βρίσκεται αποθηκευμένος στην μεταβλητή-μέλος <code>graph</code>.
+			Η μεταβλητή <code>graph</code> ποτέ δεν θα είναι null και δεν χρειάζονται έλεγχοι για να διαπιστωθεί αν είναι όντως όχι null.
+		</p>
+		<p>
+			Ο κόμβος από τον οποίο θα αρχίσει η εκτέλεση του αλγορίθμου Dijkstra βρίσκεται αποθηκευμένος στην μεταβλητή-μέλος <code>startNode</code>. 
+			Η μεταβλητή <code>startNode</code> ποτέ δεν θα είναι null και δεν χρειάζονται έλεγχοι για να διαπιστωθεί αν είναι όντως όχι null.
+		</p>
+		<p>
+			Βολεύει, αλλά δεν είναι υποχρεωτικό, να χρησιμοποιηθεί η μεταβλητή-μέλος <code>result</code> που έχει ήδη αρχικοποιηθεί καταλλήλως για εσάς ως τιμή επιστροφής της μεθόδου.
+			Η μεταβλητή <code>result</code> ποτέ δεν θα είναι null και δεν χρειάζονται έλεγχοι για να διαπιστωθεί αν είναι όντως όχι null.
+		</p>
+
+		<h2>Παράδειγμα</h2>
+		<p>
+			Έστω το γράφημα:
+		</p>
+		<ul>
+			<li>
+				|V| = 5
+			</li>
+			<li>
+				|E| = 9
+			</li>
+			<li>
+				E = {
+				<ul style="list-style-type:none">
+				<li>0 &#8594; 2 = 5,</li>
+				<li>0 &#8594; 4 = 3,</li>
+				<li>1 &#8594; 3 = 3,</li>
+				<li>2 &#8594; 3 = 1,</li>
+				<li>2 &#8594; 4 = 4,</li>
+				<li>3 &#8594; 1 = 2,</li>
+				<li>3 &#8594; 4 = 2,</li>
+				<li>4 &#8594; 1 = 1,</li>
+				<li>4 &#8594; 3 = 5,</li>
+				</ul>
+				}
+			</li>
+		</ul>
+
+		<p>Οπτικά μπορεί να αναπαρασταθεί ως:</p>
+		<p><img src="example_graph_clean.png" onerror="imgAltClean(this)" alt="Γράφημα" /></p>
+
+		<p>Εκτελώντας τον αλγόριθμο Dijkstra πάνω του λαμβάνουμε:</p>
+		<p><img src="example_graph_dijkstra.png" onerror="imgAltDijkstra(this)" alt="Γράφημα" /></p>
+
+		<p>Το αποτέλεσμα της ετέλεσης του αλγορίθμου Dijkstra αναπαρίσταται με ένα αντικείμενο τύπου <code>DijkstraResult</code>
+		το οποίο θα περιέχει τις τιμές:</p>
+		<ul>
+			<li>
+				<em><code>nodeDistance</code> τύπου <code>double[]</code></em> = <code>[Double.POSITIVE_INFINITY, 3.0, 0.0, 1.0, 3.0]</code>.
+			</li>
+			<li>
+				<em><code>nodeThrough</code> τύπου <code>int[]</code></em> = <code>[0, 3, 2, 2, 3]</code>.
+			</li>
+		</ul>
+
+		<h3>
+			Η βοηθητική κλάση
+			<code>DijkstraResult</code>
+		</h3>
+		<p>
+			Η κλάση <code>DijkstraResult</code> χρησιμοποιείται για την αναπαράσταση του αποτελέσματος του αλγορίθμου Dijkstra. Πρέπει να χρησιμοποιήσετε τις μεταβλητές-μέλη 
+			<code>nodeDistance</code> και <code>nodeThrough</code> για να αποθηκεύσετε μέσα το αποτέλεσμα.
+		</p>
+		<p>
+			Οι μεταβλητές θα πρέπει να περιέχουν:
+		</p>
+		<ul>
+			<li>
+				<em><code>nodeDistance</code> τύπου <code>double[]</code>:</em> Τις αποστάσεις από τον κόμβο έναρξης <code>startNode</code>, με την κάθε απόσταση να είναι αποθηκευμένη στην αντίστοιχη θέση του πίνακα.
+				<br/>Όταν ο κόμβος v δεν είναι προσεγγίσιμος, τότε το nodeDistance[v] πρέπει να έχει τιμή <code>Double.POSITIVE_INFINITY</code>.
+			</li>
+			<li>
+				<em><code>nodeThrough</code> τύπου <code>int[]</code>:</em> Τους κόμβους μέσω των οποίων επιτυχγάνονται οι προηγούμενες αποστάσεις.
+				<br/>Όταν ο κόμβος v δεν είναι προσεγγίσιμος, τότε το nodeThough[v] δεν έχει σημασία τι τιμή έχει.
+			</li>
+		</ul>
+
+
+		<h3>Είσοδος</h3>
+		<p>Παρέχονται αυτόματα στον contructor της κλάσης <code>Dijkstra</code> και όχι στην μέθοδο <code>shortestPaths</code>:</p>
+		<ul>
+			<li>Ένας κατευθυμόμενος γράφος με αποστάσεις/βάρη.</li>
+			<li>Ένας κόμβος έναρξης.</li>
+		</ul>
+
+		<h3>Έξοδος</h3>
+		<p>
+			Ένα αντικείμενο της κλάσης <code>DijkstraResult</code>
+			που να περιέχει τo αποτέλεσμα του αλγορίθμου.
+		</p>
+
+
+		<h3>Παράδειγμα με κώδικα</h3>
+		<p>Με βάση το παραπάνω γράφημα:</p>
+		<pre style="border:1px solid #000">
+DirectedDistanceGraph g = new DirectedDistanceGraph(5);
+g.setEdge(0,2,5);
+g.setEdge(0,4,3);
+g.setEdge(1,3,3);
+g.setEdge(2,3,1);
+g.setEdge(2,4,4);
+g.setEdge(3,1,2);
+g.setEdge(3,4,2);
+g.setEdge(4,1,1);
+g.setEdge(4,3,5);
+
+int startNode = 2;
+
+Dijkstra dijkstra = new Dijkstra(g, startNode);
+DijkstraResult result = dijkstra.shortestPaths();
+
+assert(result.nodeDistance[0] == Double.POSITIVE_INFINITY);
+assert(result.nodeDistance[1] == 3.0);
+assert(result.nodeDistance[2] == 0.0);
+assert(result.nodeDistance[3] == 1.0);
+assert(result.nodeDistance[4] == 3.0);
+
+assert(result.nodeThrough[0] == 0);
+assert(result.nodeThrough[1] == 3);
+assert(result.nodeThrough[2] == 2);
+assert(result.nodeThrough[3] == 2);
+assert(result.nodeThrough[4] == 3);
+
+		</pre>
+
+<h2>Επισημάνσεις / Διευκρινήσεις</h2>
+<p>
+	Το μέγεθος των πινάκων <code>nodeDistance: int[]</code> και <code>nodeThrough: double[]</code> 
+	που επιστρέφονται ως οι μεταβλητές-μέλη της κλάσης <code>DijkstraResult</code> ως απάντηση θα πρέπει να έχουν
+	μέγεθος ακριβώς όσο είναι το πλήθος των κόμβων του γραφήματος. Αν περιέχει
+	10 διαφορετικούς/διακριτούς κόμβους τότε οι πίνακες που επιστρέφονται πρέπει να έχει μέγεθος
+	ακριβώς 10. Η αρχικοποίηση που κάνει ο constructor της κλάσης <code>Dijkstra</code> τους αρχικοποιεί σε αυτό το μέγεθος.
+</p>
+<p>
+	Δυστυχώς, οι πίνακες στην Java δεν υποστηρίζουν αυτόματη επέκταση. Δηλαδή δεν μπορεί κανείς
+	να φτιάξει ένα άδειο πίνακα, χωρίς να ορίσει μέγεθος και απλά να προσθέτει στοιχεία και ο πίνακας
+	αυτόματα να αναπροσαρμόζεται για να χωρέσουν τα νέα στοιχεία. Αυτή η δυνατότητα προσφέρεται
+	από τον κλάση <a href="http://docs.oracle.com/javase/6/docs/api/java/util/ArrayList.html">java.util.ArrayList</a>.
+</p>
+<p>
+	Εάν αποθηκεύετε στη λίστα με τους κόμβους σε ένα αντικείμενο τύπου
+	ArrayList&lt;Integer&gt; θα πρέπει προτού τερματίσει ο κώδικάς σας να μετατρέπει το αποτέλεσμα από
+	ArrayList&lt;Integer&gt; σε int[] κατάλληλου μεγέθους και να επιστρέφει αυτό ως απάντηση.
+	Αντίστοιχα για ArrayList&lt;Double&gt; σε double[].
+</p>
+<p>
+	Δείτε τα παρακάτω παραδείγματα κώδικα για το πως μπορείτε να χρησιμοποιήσετε την ArrayList.
+</p>
+<pre style="border:1px solid #000">
+// στην αρχή του αρχείου κάνετε import την κλάση
+import java.util.ArrayList;
+</pre>
+<p>
+	Εντός της μεθόδου σας μπορείτε να χρησιμοποιήσετε κώδικα ως εξής:
+</p>
+<pre style="border:1px solid #000">
+int[] exampleMethod(){
+	// Κατασκευή ενός άδειου αρχικά “πίνακα” τύπου ArrayList
+	// που περιέχει Integers
+	ArrayList&lt;Integer&gt; explored= new ArrayList&lt;Integer&gt;();
+	
+	// ... άλλοι υπολογισμοί
+	
+	// Παράδειγμα επανάληψης εντός της οποίας προστίθενται στοιχεία
+	// στον πίνακα κατά την διάτρεξη
+	while(traversalNotCompleted){
+		// ο τρέχων κόμβος είναι ο τάδε
+		Node currentNode = ....
+		// ... άλλοι υπολογισμοί
+		// πρόσθεσε το ID του τρέχοντα κόμβου
+		// στο τέλος του “πίνακα” explored
+		explored.add( currentNode.getId() );
+	}
+	
+	// ... άλλοι υπολογισμοί
+	
+	// Μετατροπή του ArrayList&lt;Integer&gt; σε int[] για επιστροφή
+	// ως αποτέλεσμα
+	
+	// Κατασκευάζουμε ένα νέο πίνακα int[] μεγέθους όσο είναι το
+	// μέγεθος του “πίνακα” explored (το μέγεθος του πίνακα explored
+	// επιστρέφεται από την μέθοδό του size() )
+	int[] result = new int[explored.size()];
+
+	// Περνάμε πάνω από κάθε στοιχείο εντός του explored
+	for (int i = 0; i &lt; result.length; i++){
+		// παίρνουμε το i-οστό στοιχείο με την μέθοδό του get(i)
+		// και το αποθηκεύουμε στο i-οστό στοιχείο του πίνακα result
+		result[i] = explored.get(i).getId();
+	}
+	
+	// Επιστρέφουμε τον πίνακα result
+	return result;
+</pre>
+
+		<p>
+			Καλή επιτυχία!
+		</p>
+
+	</body>
+</html>
