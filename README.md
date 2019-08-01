@@ -1,4 +1,4 @@
-# My class projects on "Data Structures" in Democritus University of Thrace
+# My class projects on "Data Structures" at Democritus University of Thrace
 
 keywords: java, facility game, dijkstra, mst
 
